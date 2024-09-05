@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta information for character encoding and viewport settings for responsive design -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title -->
+    <title>Drop Down Menu</title>
+
+    <!-- Link to external stylesheet for styling the page -->
+    <link rel="stylesheet" href="./styles.css">
+
+    <!-- RemixIcon CDN for using icons within the navigation -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Header section containing navigation -->
+    <header class="header">
+        <!-- Navigation container -->
+        <nav class="nav_container">
+            <div class="nav_data">
+                <!-- Logo with icon and text -->
+                <a href="#" class="nav_logo">
+                    <i class="ri-code-box-fill"></i>WEB DESIGN
+                </a>
+
+                <!-- Hamburger menu for mobile navigation (toggles the menu visibility) -->
+                <div class="nav_toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav_burger"></i>
+                    <!-- Menu icon (visible when menu is closed) -->
+                    <i class="ri-close-large-line nav_close"></i>
+                    <!-- Close icon (visible when menu is open) -->
+                </div>
+            </div>
+
+            <!-- Main navigation menu -->
+            <div class="nav_menu" id="nav-menu">
+                <ul class="nav_list">
+                    <!-- Navigation links -->
+                    <li><a href="#" class="nav_link">HOME</a></li>
+                    <li><a href="#" class="nav_link">ABOUT</a></li>
+
+                    <!-- Dropdown menu for services -->
+                    <li class="dropdown_item">
+                        <div class="nav_link">
+                            SERVICES <i class="ri-arrow-down-s-line dropdown_arrow"></i>
+                            <!-- Dropdown arrow -->
+                        </div>
+                        <!-- Dropdown options -->
+                        <ul class="dropdown_menu">
+                            <li><a href="#" class="dropdown_link"><i class="ri-window-line"></i>Web Development</a></li>
+                            <li><a href="#" class="dropdown_link"><i class="ri-smartphone-line"></i>Mobile App Development</a></li>
+                            <li><a href="#" class="dropdown_link"><i class="ri-draft-line"></i>UI/UX Design</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Contact link -->
+                    <li><a href="#" class="nav_link">CONTACT</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- External JavaScript file for functionality like toggle -->
+    <script src="./main.js"></script>
+</body>
+
+</html>

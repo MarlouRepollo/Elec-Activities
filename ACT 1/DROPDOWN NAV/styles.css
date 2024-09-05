@@ -1,0 +1,404 @@
+/* Import Google Fonts for body text */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* Define CSS variables for global use */
+
+:root {
+    --header: 4rem;
+    --black-color: #000000;
+    --black-color-light: hsl(220, 24%, 15%);
+    --black-color-lighten: hsl(220, 20%, 18%);
+    --white-color: #ffffff;
+    --body-color: hsl(220, 100%, 97%);
+    --body-font: "Montserrat", sans-serif;
+    --normal-font-size: .938rem;
+    --font-default: 400;
+    --font-semi-bold: 600;
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+
+/* Adjust font size for larger screens */
+
+@media screen and (min-width: 800px) {
+     :root {
+        --normal-font-size: 1rem;
+    }
+}
+
+
+/* Reset default margins and paddings */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Body styling */
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+}
+
+
+/* Remove default list styling */
+
+ul {
+    list-style: none;
+}
+
+
+/* Remove default underline from links */
+
+a {
+    text-decoration: none;
+}
+
+
+/* Navigation container styling */
+
+.nav_container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Header styling (fixed to top) */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header);
+    background-color: var(--black-color);
+    box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
+    z-index: var(--z-fixed);
+    display: flex;
+    align-items: center;
+}
+
+
+/* Navigation bar styling */
+
+.nav {
+    height: var(--header);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Styling for logo, burger, and close icons */
+
+.nav_logo,
+.nav_burger,
+.nav_close {
+    color: var(--white-color);
+}
+
+
+/* Navigation data section (logo and toggle) */
+
+.nav_data {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 1.5rem;
+}
+
+
+/* Logo styling */
+
+.nav_logo {
+    display: inline-flex;
+    align-items: center;
+    column-gap: .25rem;
+    /* Space between icon and text */
+    font-weight: var(--font-semi-bold);
+    /* Semi-bold logo text */
+}
+
+
+/* Logo icon styling */
+
+.nav_logo i {
+    font-weight: initial;
+    font-size: 1.25rem;
+}
+
+
+/* Toggle (hamburger) button styling */
+
+.nav_toggle {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: opacity .1s, transform .4s;
+}
+
+
+/* Common styling for both the burger and close icons */
+
+.nav_burger,
+.nav_close {
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    inset: 0;
+    margin: auto;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: opacity .1s, transform .4s;
+}
+
+
+/* Hide the close icon by default */
+
+.nav_close {
+    opacity: 0;
+}
+
+
+/* Mobile-specific styling */
+
+@media screen and (max-width: 1118px) {
+    .nav_menu {
+        position: absolute;
+        left: 0;
+        top: calc(var(--header) + 0.5rem);
+        width: 100%;
+        background-color: var(--black-color);
+        height: calc(100vh - 3.5rem);
+        overflow: auto;
+        pointer-events: none;
+        opacity: 0;
+        transition: top .4s, opacity .3s;
+    }
+    .nav_toggle {
+        position: absolute;
+        top: 50%;
+        right: 1.5rem;
+        transform: translateY(-50%);
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        transition: opacity .1s, transform .4s;
+        display: block;
+    }
+    .nav_menu::-webkit-scrollbar {
+        width: 0;
+    }
+    .nav_list {
+        background-color: var(--black-color);
+        padding-top: 1rem;
+    }
+}
+
+
+/* Navigation link styling */
+
+.nav_link {
+    color: var(--white-color);
+    background-color: var(--black-color);
+    font-weight: var(--font-semi-bold);
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color .3s;
+}
+
+
+/* Hover effect on navigation link */
+
+.nav_link:hover {
+    background-color: var(--black-color-light);
+}
+
+
+/* Show the menu when toggled */
+
+.show-menu {
+    opacity: 1;
+    top: 3.5rem;
+    pointer-events: initial;
+}
+
+
+/* Rotate burger and show close icon when toggled */
+
+.show-icon .nav_burger {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.show-icon .nav_close {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+
+/* Dropdown item hover effect */
+
+.dropdown_item {
+    cursor: pointer;
+}
+
+
+/* Arrow for dropdown items */
+
+.dropdown_arrow {
+    font-size: 1.25rem;
+    font-weight: initial;
+    transition: transform .4s;
+}
+
+
+/* Dropdown link styling */
+
+.dropdown_link {
+    padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+    color: var(--white-color);
+    background-color: var(--black-color-light);
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    font-weight: var(--font-semi-bold);
+    transition: background-color .3s;
+}
+
+
+/* Hover effect for dropdown links */
+
+.dropdown_link:hover {
+    background-color: var(--black-color);
+}
+
+
+/* Initial state of dropdown menu (hidden) */
+
+.dropdown_menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease-out;
+}
+
+
+/* Show dropdown menu on hover */
+
+.dropdown_item:hover .dropdown_menu {
+    max-height: 1000px;
+    transition: max-height .4s ease-in;
+}
+
+
+/* Rotate the dropdown arrow on hover */
+
+.dropdown_item:hover .dropdown_arrow {
+    transform: rotate(180deg);
+}
+
+
+/* Adjustments for smaller screens */
+
+@media screen and (max-width: 340px) {
+    .nav_container {
+        padding: 0 1rem;
+    }
+    .nav_link {
+        padding: 1rem;
+    }
+}
+
+
+/* Adjustments for larger screens */
+
+@media screen and (min-width: 1118px) {
+    .nav_container {
+        padding: 0 3rem;
+        max-width: 1200px;
+    }
+    .nav_toggle {
+        display: none;
+    }
+    .nav {
+        height: var(--header);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    .nav_logo {
+        margin-right: auto;
+        font-size: 1.5rem;
+    }
+    .nav_list {
+        display: flex;
+        align-items: center;
+        column-gap: 2.5rem;
+    }
+    .nav_link {
+        height: 100%;
+        padding: 0 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: color .3s ease;
+    }
+    .nav_link:hover {
+        background-color: transparent;
+        color: var(--black-color-light);
+    }
+    .dropdown_item {
+        position: relative;
+    }
+    .dropdown_menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s ease, top .3s ease;
+        background-color: var(--black-color-lighten);
+        padding: 0.5rem 0;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        z-index: 999;
+        min-width: 220px;
+    }
+    .dropdown_link {
+        padding: 1rem 2rem;
+        white-space: nowrap;
+        display: block;
+        transition: background-color .3s ease, color .3s ease;
+    }
+    .dropdown_item:hover .dropdown_menu {
+        opacity: 1;
+        top: 100%;
+        pointer-events: initial;
+    }
+    .dropdown_menu .dropdown_link {
+        padding: 0.75rem 1.75rem;
+        color: var(--white-color);
+        background-color: transparent;
+        transition: background-color .3s ease;
+    }
+    .dropdown_menu .dropdown_link:hover {
+        background-color: var(--black-color-light);
+        color: var(--white-color);
+    }
+}
